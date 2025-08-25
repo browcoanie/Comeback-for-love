@@ -1,4 +1,9 @@
-const story = [
+ function iniciarAudio() {
+      let audio = document.getElementById("miAudio");
+      audio.play();
+    }
+
+    const story = [
       {
         title: "Un jueves por la mañana",
         text: "24 de abril... el día que el destino me llevó hasta ti. Entre la rutina y el ruido, apareció tu rostro, y el mundo, de pronto, tuvo otro color."
