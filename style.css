@@ -1,4 +1,4 @@
-    :root{
+:root{
       --bg0: #0b0b10;
       --bg1: #101019;
       --fg: #e8e6f0;
@@ -148,6 +148,7 @@
       padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 20px) clamp(20px, 5vw, 28px);
       position: relative;
       flex-wrap: wrap;
+      flex-direction: column;
     }
     button{
       font-family:"Cinzel", serif;
@@ -199,6 +200,7 @@
       min-width: 120px;
       border: 1px solid rgba(212, 175, 55, 0.2);
       box-shadow: inset 0 2px 8px rgba(0,0,0,.3);
+      margin-bottom: 12px;
     }
     .bar{
       height:100%; 
@@ -222,6 +224,60 @@
       0%, 100% { opacity: 0; }
       50% { opacity: 1; }
     }
+    
+    /* Botón de música */
+    .music-button {
+      font-family: "Cinzel", serif;
+      background: linear-gradient(135deg, rgba(109, 93, 141, 0.9), rgba(180, 15, 46, 0.8));
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      color: var(--fg);
+      padding: clamp(8px, 2.5vw, 10px) clamp(12px, 3vw, 16px);
+      border-radius: clamp(12px, 2.5vw, 16px);
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,.3);
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .music-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    
+    .music-button:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,0,0,.4);
+      border-color: rgba(212, 175, 55, 0.6);
+      background: linear-gradient(135deg, rgba(109, 93, 141, 1), rgba(180, 15, 46, 0.9));
+    }
+    
+    .music-button:hover::before {
+      left: 100%;
+    }
+    
+    .music-button:active {
+      transform: translateY(0) scale(1);
+    }
+    
+    .button-group {
+      display: flex;
+      gap: clamp(8px, 3vw, 12px);
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
     .fade-out{
       opacity:0; 
       transform: translateY(10px) scale(0.98);
@@ -268,7 +324,8 @@
     }
     @media (max-width: 768px) {
       .controls{flex-direction: column; gap: 10px}
-      .progress{order: -1; max-width: 70vw; margin-bottom: 10px}
+      .progress{order: -2; max-width: 70vw; margin-bottom: 10px}
+      .music-button{order: -1; margin-bottom: 8px}
       .button-group{display: flex; gap: 10px; width: 100%; justify-content: center}
       .content{justify-content: center; align-items: center}
     }
@@ -307,7 +364,8 @@
         padding: 16px 16px 24px;
         flex-shrink: 0;
       }
-      .progress{max-width: 80vw; margin-bottom: 12px}
+      .progress{max-width: 80vw; margin-bottom: 12px; order: -2}
+      .music-button{order: -1; margin-bottom: 8px}
       .button-group{gap: 10px}
       h1{font-size: clamp(1.4rem, 7vw, 1.9rem); margin-bottom: 0.8rem}
       p{font-size: clamp(1rem, 4.5vw, 1.2rem); line-height: 1.6}
