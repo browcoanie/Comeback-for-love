@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Construyamos el hogar</title>
+  <title>Construyamos nuestro hogar</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Domine:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
+  <audio id="miAudio" loop>
+    <source src="audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
   <div class="stars"><canvas id="stars"></canvas></div>
   <div class="shooting-star" style="top: 20%; right: 30%; animation-delay: 0s;"></div>
   <div class="shooting-star" style="top: 40%; right: 60%; animation-delay: 8s;"></div>
@@ -28,7 +33,7 @@
     <div class="content" id="content">
       <div class="story">
         <div class="card fade-in" id="card" role="region" aria-live="polite" aria-atomic="true">
-          <h1 id="title">Construyamos el hogar</h1>
+          <h1 id="title">Construyamos nuestro hogar</h1>
           <p id="text">En el borde de un pueblo torcido, dos almas aprendieron a leer el silencio entre latidos.</p>
         </div>
       </div>
@@ -36,6 +41,7 @@
         <div class="progress" aria-label="Progreso">
           <div class="bar" id="bar"></div>
         </div>
+        <button class="music-button" onclick="iniciarAudio()">🎵 Activar música</button>
         <div class="button-group">
           <button id="prev" class="ghost" aria-label="Anterior (←)">← Atrás</button>
           <button id="next" aria-label="Siguiente (Espacio / Enter)">Continuar →</button>
@@ -45,5 +51,4 @@
   </div>
   
 </body>
-
 </html>
